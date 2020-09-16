@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#007991</color>
+    <color name="colorPrimaryDark">#0F7173</color>
+    <color name="colorAccent">#EF8354</color>
+
+    <color name="macRedDotColor">#FF5F56</color>
+    <color name="macGreenDotColor">#27C93F</color>
+    <color name="macYellowDotColor">#FFBD2E</color>
+</resources>
