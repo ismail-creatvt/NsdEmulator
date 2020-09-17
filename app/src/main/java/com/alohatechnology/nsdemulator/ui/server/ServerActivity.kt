@@ -3,7 +3,6 @@ package com.alohatechnology.nsdemulator.ui.server
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -53,9 +52,9 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun refreshClientsSpinner() {
         runOnUiThread {
-            if (binding?.clients?.adapter is ArrayAdapter<*>) {
-                val clientsAdapter = (binding?.clients?.adapter as ArrayAdapter<*>?)
-                clientsAdapter?.notifyDataSetChanged()
+            if (binding?.clients?.adapter is ClientAdapter) {
+                val clientsAdapter = (binding?.clients?.adapter as ClientAdapter)
+                clientsAdapter.notifyDataSetChanged()
             }
         }
     }
@@ -80,8 +79,8 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun addClient(client: Client) {
         runOnUiThread {
-            if (binding?.clients?.adapter is ArrayAdapter<*>) {
-                (binding?.clients?.adapter as ArrayAdapter<Client>).add(client)
+            if (binding?.clients?.adapter is ClientAdapter) {
+                (binding?.clients?.adapter as ClientAdapter).add(client)
             }
         }
     }
@@ -101,8 +100,8 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun removeClient(client: Client) {
         runOnUiThread {
-            if (binding?.clients?.adapter is ArrayAdapter<*>) {
-                (binding?.clients?.adapter as ArrayAdapter<Client>).remove(client)
+            if (binding?.clients?.adapter is ClientAdapter) {
+                (binding?.clients?.adapter as ClientAdapter).remove(client)
             }
         }
     }
