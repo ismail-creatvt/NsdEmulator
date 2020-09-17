@@ -3,7 +3,6 @@ package com.alohatechnology.nsdemulator.util
 import android.content.res.ColorStateList
 import android.os.Handler
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ScrollView
 import android.widget.TextView
@@ -11,13 +10,15 @@ import androidx.core.widget.addTextChangedListener
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
+import com.alohatechnology.nsdemulator.tcp.Client
+import com.alohatechnology.nsdemulator.ui.server.ClientsAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("dataSet")
-fun <T> setDropdownData(textView: AutoCompleteTextView, arrayList: ArrayList<T>?) {
+fun setDropdownData(textView: AutoCompleteTextView, arrayList: ArrayList<Client>?) {
     if (arrayList == null) return
-    val adapter = ArrayAdapter(textView.context, android.R.layout.simple_spinner_item, arrayList)
+    val adapter = ClientsAdapter(textView.context, android.R.layout.simple_spinner_item, arrayList)
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
     textView.setAdapter(adapter)
 }

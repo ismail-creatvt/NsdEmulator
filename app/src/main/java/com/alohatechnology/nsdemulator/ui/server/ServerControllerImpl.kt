@@ -8,6 +8,7 @@ import com.alohatechnology.nsdemulator.nsd.NsdHelper
 import com.alohatechnology.nsdemulator.tcp.Client
 import com.alohatechnology.nsdemulator.tcp.TcpServer
 import com.alohatechnology.nsdemulator.tcp.TcpServerImpl
+import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplate
 
 class ServerControllerImpl(
         private val nsdManager: NsdHelper,
@@ -88,6 +89,10 @@ class ServerControllerImpl(
         viewModel.message.postValue(responseText)
     }
 
+    override fun onResponseTemplateClick(template: ResponseTemplate) {
+        viewModel.message.postValue(template.response)
+    }
+
     /**
      * Starts or stops the service depending on the current state
      */
@@ -162,5 +167,4 @@ class ServerControllerImpl(
         if (selection < 0) return null
         return viewModel.clients[selection]
     }
-
 }

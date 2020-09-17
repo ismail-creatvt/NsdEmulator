@@ -1,6 +1,8 @@
 package com.alohatechnology.nsdemulator.ui.server
 
-interface ServerController {
+import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplateAdapter
+
+interface ServerController : ResponseTemplateAdapter.ResponseTemplateClickListener {
 
     fun onSendClick()
 
