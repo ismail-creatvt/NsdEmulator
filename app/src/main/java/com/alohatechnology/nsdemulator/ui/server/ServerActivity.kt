@@ -16,6 +16,7 @@ import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplateBottomSheetF
 import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplateBottomSheetFragment.Companion.CLASS_NAME
 import com.alohatechnology.nsdemulator.util.getViewModel
 import com.alohatechnology.nsdemulator.util.responseTemplates
+import com.alohatechnology.nsdemulator.util.setDropdownData
 
 class ServerActivity : AppCompatActivity(), ServerView {
 
@@ -49,8 +50,8 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun refreshClientsSpinner() {
         runOnUiThread {
-            if (binding?.clients?.adapter is ClientsAdapter) {
-                val clientsAdapter = (binding?.clients?.adapter as ClientsAdapter)
+            if (binding?.clients?.adapter is ClientAdapter) {
+                val clientsAdapter = (binding?.clients?.adapter as ClientAdapter)
                 clientsAdapter.notifyDataSetChanged()
             }
         }
@@ -69,8 +70,24 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun addClient(client: Client) {
         runOnUiThread {
-            if (binding?.clients?.adapter is ClientsAdapter) {
-                (binding?.clients?.adapter as ClientsAdapter).add(client)
+            viewModel?.clients?.add(client)
+            if (binding?.clients?.adapter?.count != viewModel?.clients?.size) {
+                setDropdownData(binding?.clients!!, viewModel?.clients)
+            } else {
+                (binding?.clients?.adapter as ClientAdapter?)?.notifyDataSetChanged()
+            }
+        }
+    }
+
+    override fun removeClient(client: Client) {
+        runOnUiThread {
+            if (binding?.clients?.adapter is ClientAdapter) {
+                viewModel?.clients?.remove(client)
+                if (binding?.clients?.adapter?.count != viewModel?.clients?.size) {
+                    setDropdownData(binding?.clients!!, viewModel?.clients)
+                } else {
+                    (binding?.clients?.adapter as ClientAdapter?)?.notifyDataSetChanged()
+                }
             }
         }
     }
@@ -86,13 +103,5 @@ class ServerActivity : AppCompatActivity(), ServerView {
                     dialogInterface.dismiss()
                 }
                 .show()
-    }
-
-    override fun removeClient(client: Client) {
-        runOnUiThread {
-            if (binding?.clients?.adapter is ClientsAdapter) {
-                (binding?.clients?.adapter as ClientsAdapter).remove(client)
-            }
-        }
     }
 }

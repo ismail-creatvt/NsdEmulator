@@ -11,14 +11,14 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.alohatechnology.nsdemulator.tcp.Client
-import com.alohatechnology.nsdemulator.ui.server.ClientsAdapter
+import com.alohatechnology.nsdemulator.ui.server.ClientAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 
 @BindingAdapter("dataSet")
 fun setDropdownData(textView: AutoCompleteTextView, arrayList: ArrayList<Client>?) {
     if (arrayList == null) return
-    val adapter = ClientsAdapter(textView.context, android.R.layout.simple_spinner_item, arrayList)
+    val adapter = ClientAdapter(textView.context, android.R.layout.simple_spinner_item, arrayList)
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
     textView.setAdapter(adapter)
 }
