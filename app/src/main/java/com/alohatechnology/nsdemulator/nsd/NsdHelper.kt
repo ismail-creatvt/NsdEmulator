@@ -37,7 +37,7 @@ class NsdHelper(private val context: Context) : LifecycleObserver {
     @Suppress("BlockingMethodInNonBlockingContext")
     fun getNsdServiceInfo() = NsdServiceInfo().apply {
         // Service information
-        serviceName = "MCAService" + System.currentTimeMillis() / 1000
+        serviceName = "MCAService"
         port = NETWORK_SERVICE_PORT
         serviceType = SERVICE_TYPE
 

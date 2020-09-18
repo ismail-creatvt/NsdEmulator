@@ -16,6 +16,7 @@ import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplateActivity
 import com.alohatechnology.nsdemulator.ui.templates.ResponseTemplateActivity.Companion.RESPONSE_STRING
 import com.alohatechnology.nsdemulator.util.getViewModel
 import com.alohatechnology.nsdemulator.util.responseTemplates
+import com.alohatechnology.nsdemulator.util.setDropdownData
 
 class ServerActivity : AppCompatActivity(), ServerView {
 
@@ -79,8 +80,24 @@ class ServerActivity : AppCompatActivity(), ServerView {
 
     override fun addClient(client: Client) {
         runOnUiThread {
+            viewModel?.clients?.add(client)
+            if (binding?.clients?.adapter?.count != viewModel?.clients?.size) {
+                setDropdownData(binding?.clients!!, viewModel?.clients)
+            } else {
+                (binding?.clients?.adapter as ClientAdapter?)?.notifyDataSetChanged()
+            }
+        }
+    }
+
+    override fun removeClient(client: Client) {
+        runOnUiThread {
             if (binding?.clients?.adapter is ClientAdapter) {
-                (binding?.clients?.adapter as ClientAdapter).add(client)
+                viewModel?.clients?.remove(client)
+                if (binding?.clients?.adapter?.count != viewModel?.clients?.size) {
+                    setDropdownData(binding?.clients!!, viewModel?.clients)
+                } else {
+                    (binding?.clients?.adapter as ClientAdapter?)?.notifyDataSetChanged()
+                }
             }
         }
     }
@@ -96,13 +113,5 @@ class ServerActivity : AppCompatActivity(), ServerView {
                     dialogInterface.dismiss()
                 }
                 .show()
-    }
-
-    override fun removeClient(client: Client) {
-        runOnUiThread {
-            if (binding?.clients?.adapter is ClientAdapter) {
-                (binding?.clients?.adapter as ClientAdapter).remove(client)
-            }
-        }
     }
 }
