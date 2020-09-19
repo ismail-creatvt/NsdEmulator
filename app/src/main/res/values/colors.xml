@@ -7,4 +7,18 @@
     <color name="macRedDotColor">#FF5F56</color>
     <color name="macGreenDotColor">#27C93F</color>
     <color name="macYellowDotColor">#FFBD2E</color>
+
+    <color name="primaryGrey">#d0d0d0</color>
+    <color name="primaryGreyLight">#e9e9e9</color>
+
+    <color name="darkGrey">#444444</color>
+    <color name="semiDarkGrey">#666666</color>
+    <color name="midGrey">#888888</color>
+
+    <color name="lightWhite">#f9f9f9</color>
+
+    <color name="textColorNormal">#292929</color>
+
+    <color name="textColorWhite">#f9f9f9</color>
+
 </resources>

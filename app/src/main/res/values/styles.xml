@@ -10,7 +10,20 @@
         <item name="fontFamily">@font/nunito_font</item>
     </style>
 
+    <style name="AppLightTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="consoleBackground">@color/lightWhite</item>
+        <item name="consoleHeaderStartColor">@color/primaryGrey</item>
+        <item name="consoleHeaderEndColor">@color/primaryGreyLight</item>
+        <item name="consoleTextColor">@color/textColorNormal</item>
+        <item name="appBackgroundColor">@android:color/white</item>
+    </style>
+
     <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 </resources>

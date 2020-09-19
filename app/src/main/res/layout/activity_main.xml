@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
-        android:background="#fff"
+        android:background="?appBackgroundColor"
         tools:context=".ui.server.ServerActivity">
 
         <com.google.android.material.button.MaterialButton
@@ -170,7 +170,7 @@
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/console"
-                    android:textColor="#292929"
+                    android:textColor="?consoleTextColor"
                     android:textSize="16sp" />
 
                 <ScrollView
@@ -184,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="@={viewModel.consoleText}"
-                        android:textColor="#222222"
+                        android:textColor="?consoleTextColor"
                         android:textSize="14sp"
                         app:autoBottomScrollView="@{scrollView2}"
                         app:fontFamily="@font/source_code_pro_regular"

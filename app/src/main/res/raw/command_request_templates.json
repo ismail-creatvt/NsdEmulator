@@ -30,22 +30,22 @@
     "response": "S S[1].type=\"Russound Media Streamer\""
   },
   {
-    "title": "Get source mode",
+    "title": "Get streamer mode",
     "request": "GET S[1].mode",
     "response": "S S[1].mode=\"Spotify\""
   },
   {
-    "title": "Get source name",
+    "title": "Get streamer name",
     "request": "GET S[1].name",
     "response": "S S[1].name=\"Media Streamer\""
   },
   {
-    "title": "Get source support",
+    "title": "Get streamer support",
     "request": "GET S[1].support.mm.longlist",
     "response": "S S[1].Support.MM.longList=\"TRUE\""
   },
   {
-    "title": "Get invalid source type",
+    "title": "Get invalid streamer type",
     "request": "GET S[2].type",
     "response": "E InvalidKey (error near: GET S[2].type^)"
   },
@@ -60,7 +60,7 @@
     "response": "E InvalidKey (error near: GET C[1].Z[2].name^)"
   },
   {
-    "title": "Watch source on",
+    "title": "Watch streamer on",
     "request": "WATCH S[1] ON",
     "response": "S\nN S[1].name=\"Media Streamer\"\nN S[1].type=\"Russound Media Streamer\"\nN S[1].Support.favoritesV2=\"TRUE\"\nN S[1].Support.MM.longList=\"TRUE\"\nN S[1].Support.MM.restoreOption=\"TRUE\"\nN S[1].Support.availableControls=\"TRUE\"\nN S[1].Support.trackTime=\"TRUE\"\nN S[1].Support.playTime=\"TRUE\"\nN S[1].Support.playerData=\"TRUE\"\nN S[1].channelName=\"\"\nN S[1].coverArtURL=\"\"\nN S[1].channelArtURL=\"\"\nN S[1].mode=\"Spotify\"\nN S[1].shuffleMode=\"OFF\"\nN S[1].repeatMode=\"OFF\"\nN S[1].volume=\"18\"\nN S[1].rating=\"UNKNOWN\"\nN S[1].playlistName=\"STOPPED\"\nN S[1].artistName=\"\"\nN S[1].albumName=\"\"\nN S[1].songName=\"\"\nN S[1].availableControls=\"{\"contextMenu\":false,\"dislike\":false,\"like\":false,\"next\":false,\"pause\":false,\"play\":true,\"previous\":false,\"repeat\":false,\"seekBack\":false,\"seekForward\":false,\"seekTime\":false,\"seekTrack\":false,\"shuffle\":false,\"stop\":true}\"\nN S[1].trackTime=\"0\"\nN S[1].playTime=\"0\"\nN S[1].sampleRate=\"\"\nN S[1].bitDepth=\"\"\nN S[1].bitRate=\"\"\nN S[1].format=\"\"\nN S[1].playStatus=\"stopped\""
   },
